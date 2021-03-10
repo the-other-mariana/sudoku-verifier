@@ -21,5 +21,7 @@ $ gcc sudoku-verifier.c -o sudoku -lpthread
 $ /.sudoku b.txt
 ```
 
-![image](https://github.com/the-other-mariana/sudoku-verifier/blob/master/res/terminal.png?raw=true)
+![image](https://github.com/the-other-mariana/sudoku-verifier/blob/master/res/terminal.png?raw=true) <br />
+
+*Note: the parameter `b.txt` given at execution represents the input file where the sudoku solution is.*
 
