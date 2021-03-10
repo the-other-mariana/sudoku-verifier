@@ -8,11 +8,18 @@ The sudoku bidimimensional array is local to the main() function, so this code s
 
 ## Usage
 
-1. Download the repo and store it in your local machine.
-2. Open a terminal and locate it on the repo's root directory.
-3. Compile it by typing:
+1. Download this repo and store it in your local machine.
+2. Open a terminal and move to the folder's root directory.
+3. Compile `sudoku-verifier.c` file by typing:
 
 ```bash
-$ gcc sudokuFullInput.c -o sudoku -lpthread
+$ gcc sudoku-verifier.c -o sudoku -lpthread
 ```
+4. Run the executable created in the previous step by typing:
+
+```bash
+$ /.sudoku b.txt
+```
+
+![image](https://github.com/the-other-mariana/sudoku-verifier/blob/master/res/terminal.png?raw=true)
 
