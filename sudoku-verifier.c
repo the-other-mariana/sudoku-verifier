@@ -6,6 +6,7 @@
 #define SUDOKU_SIZE 9
 #define true 1
 #define false 0
+int LOG_SEQUENCE = false;
 
 int yes = true;
 
@@ -14,9 +15,10 @@ void *f_line(void *param)
 	int *line_p = (int *)param;
 	int bools[SUDOKU_SIZE] = {0};
 	for(int i = 0; i < SUDOKU_SIZE; i++){
-		printf("%d ", line_p[i]);
+		if (LOG_SEQUENCE == true) printf("%d ", line_p[i]);
+		
 	}
-	printf("\n");
+	if (LOG_SEQUENCE == true) printf("\n");
 	
 	for(int i = 0; i < SUDOKU_SIZE; i++){
 		int index = line_p[i] - 1;
@@ -39,7 +41,7 @@ int main(int argc, char *argv[])
 {
 	int N = argc;
 	if (argc < 2) {
-		fprintf(stderr,"Faltó el nombre del archivo input: b.txt \n");
+		fprintf(stderr,"ERROR - Input file missing <b.txt>\n");
 		return -1;
 	}
 
@@ -49,7 +51,7 @@ int main(int argc, char *argv[])
 	fp = fopen(argv[1],"r");
 
     if(fp == NULL){
-        printf("No se pudo abrir el archivo :(\n");
+        printf("ERROR - Could not open file.\n");
         return -1;
     }
 
@@ -75,7 +77,8 @@ int main(int argc, char *argv[])
     		printf("%d ", board[i][j]);
     	}
     }
-    printf("\n");
+
+    if (LOG_SEQUENCE == true) printf("\n\nMulti-thread Verifying Sequence:\n");
 
 	pthread_t tid[27]; 
 	pthread_attr_t attr[27]; 
@@ -145,6 +148,6 @@ int main(int argc, char *argv[])
 	for(int i = 0; i < 27; i++){
 		pthread_join(tid[i], NULL);
 	}
-	if(yes == true) printf("\nSolucion correcta\n");
-	else if (yes == false) printf("\nSolucion incorrecta\n");
+	if(yes == true) printf("\nCorrect Solution.\n");
+	else if (yes == false) printf("\nIncorrect Solution.\n");
 }

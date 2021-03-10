@@ -13,6 +13,6 @@ The sudoku bidimimensional array is local to the main() function, so this code s
 3. Compile it by typing:
 
 ```bash
-$: gcc sudokuFullInput.c -o sudoku
+$ gcc sudokuFullInput.c -o sudoku -lpthread
 ```
 
